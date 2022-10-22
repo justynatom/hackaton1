@@ -18,13 +18,17 @@ for i in tablica_z_rozwiazaniem:
 print()
 
 for i in range(ilosc_prob):
+    print("Zostało Ci: ", ilosc_prob)
     tryb_wyboru=input("Wpisz 1 jeśli chcesz podać 1 literę albo wpisz 2 jeśli chcesz odgadnąć całe hasło: ")
     if tryb_wyboru == "1":
         litera_uzytkownika = input("podaj litere: ")
+        czy_zla_odpowiedz=True
         for index_litery_w_hasle in range(len(haslo)):
             if litera_uzytkownika == haslo[index_litery_w_hasle]:
                 tablica_z_rozwiazaniem[index_litery_w_hasle] = litera_uzytkownika
-
+                czy_zla_odpowiedz=False
+        if czy_zla_odpowiedz == True:
+            print("Litera nie wystepuje w haśle.")
         print(tablica_z_rozwiazaniem)
     else:
         haslo_uzytkownika=input("Podaj haslo, jesli myslisz, ze znasz odpowiedz: ")
@@ -32,7 +36,7 @@ for i in range(ilosc_prob):
             print("Brawo! Udalo Ci sie odgadnac haslo.")
         else:
             print("Niestety, nie udalo sie")
-
+    ilosc_prob=ilosc_prob-1
 print("Liczba prób została wyczerpana. Wisielec został powieszony.")
 
 # for i in range(0):
